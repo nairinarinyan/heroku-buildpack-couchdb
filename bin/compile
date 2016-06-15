@@ -96,6 +96,7 @@ make
 make install
 echo "-----> Installed erlang"
 
+rm -rf $CACHE_DIR/apache-couchdb-1.6.1
 
 if [ ! -e $CACHE_DIR/apache-couchdb-1.6.1 ]; then
     # get couchdb
@@ -108,6 +109,7 @@ fi
 
 # build couchdb
 cd $CACHE_DIR/apache-couchdb-1.6.1
+echo $(pwd)
 export PATH=$PATH:$BUILD_DIR/usr/bin/:$BUILD_DIR/usr/local/bin
 export ICU_CONFIG="$BUILD_DIR/usr/bin/icu-config --detect-prefix"
 export ICU_CPPFLAGS="-I$BUILD_DIR/usr/include/"
